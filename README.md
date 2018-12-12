@@ -48,7 +48,7 @@ const dirTree = require('directory-tree');
 const filteredTree = dirTree('/some/path', {attributes:['mode', 'mtime']});
 ```
 
-The default attributes are `[name, size, extension, path]` for Files and `[name, size, path]` for Directories
+The default attributes are `[name, extension, path]` for Files and `[name, path]` for Directories
 
 A callback function can be executed with each file that matches the extensions provided:
 
@@ -61,7 +61,7 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, (item, PATH, sta
 });
 ```
 
-The callback function takes the directory item (has path, name, size, and extension) and an instance of [node path](https://nodejs.org/api/path.html) and an instance of [node FS.stats](https://nodejs.org/api/fs.html#fs_class_fs_stats).
+The callback function takes the directory item (has path, name, and extension) and an instance of [node path](https://nodejs.org/api/path.html) and an instance of [node FS.stats](https://nodejs.org/api/fs.html#fs_class_fs_stats).
 
 You can also pass a callback function for directories:
 ```js
