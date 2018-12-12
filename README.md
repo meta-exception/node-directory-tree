@@ -45,7 +45,7 @@ You can also specify which additional attributes you would like to be included a
 
 ```js
 const dirTree = require('directory-tree');
-const filteredTree = dirTree('/some/path', {attributes:['mode', 'mtime']});
+const filteredTree = dirTree('/some/path', { attributes: ['mode', 'mtime'] });
 ```
 
 The default attributes are `[name, extension, path]` for Files and `[name, path]` for Directories
@@ -53,22 +53,20 @@ The default attributes are `[name, extension, path]` for Files and `[name, path]
 A callback function can be executed with each file that matches the extensions provided:
 
 ```js
-const PATH = require('path');
 const dirTree = require('directory-tree');
 
-const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, (item, PATH, stats) => {
+const tree = dirTree('./test/test_data', { extensions: /\.txt$/ }, (item, stats) => {
 	console.log(item);
 });
 ```
 
-The callback function takes the directory item (has path, name, and extension) and an instance of [node path](https://nodejs.org/api/path.html) and an instance of [node FS.stats](https://nodejs.org/api/fs.html#fs_class_fs_stats).
+The callback function takes the directory item (has path, name, and extension) and an instance of [node FS.stats](https://nodejs.org/api/fs.html#fs_class_fs_stats).
 
 You can also pass a callback function for directories:
 ```js
-const PATH = require('path');
 const dirTree = require('directory-tree');
 
-const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PATH, stats) => {
+const tree = dirTree('./test/test_data', { extensions: /\.txt$/ }, null, (item, stats) => {
 	console.log(item);
 });
 ```
