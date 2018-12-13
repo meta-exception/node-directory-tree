@@ -4,6 +4,7 @@ declare const directoryTree: (
     normalizePath?: boolean;
     exclude?: RegExp | RegExp[];
     attributes?: string[];
+    dirContentsSize?: boolean;
     extensions?: RegExp;
   },
   onEachFile?: (item: DirectoryTree, path: string, stats: Stats) => void,
@@ -13,8 +14,8 @@ declare const directoryTree: (
 declare class DirectoryTree {
   path: string;
   name: string;
-  size: number;
   type: "directory" | "file";
+  size?: number;
   children?: DirectoryTree[];
   extension?: string;
 }
